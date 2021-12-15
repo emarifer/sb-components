@@ -1,53 +1,88 @@
 {
-  "name": "my-storybook",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^12.20.37",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typescript": "^4.5.4",
-    "web-vitals": "^1.1.2"
-  },
-  "scripts": {
-    "start": "start-storybook -p 6006",
-    "build": "build-storybook",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=cbee8ee70296"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@storybook/addon-actions": "^6.4.9",
-    "@storybook/addon-essentials": "^6.4.9",
-    "@storybook/addon-links": "^6.4.9",
-    "@storybook/react": "^6.4.9",
-    "babel-loader": "^8.2.3",
-    "chromatic": "^6.2.0",
-    "storybook-dark-mode": "^1.0.8"
-  }
+	"name": "emf-my-storybook-components",
+	"version": "0.1.0",
+	"private": false,
+	"license": "MIT",
+	"typings": "dist/index.d.ts",
+	"main": "dist/index.js",
+	"homepage": "https://emarifer-cv-app.netlify.app",
+	"repository": {
+		"url": "https://github.com/emarifer/sb-components",
+		"type": "git"
+	},
+	"peerDependencies": {
+		"react": ">=16",
+		"typescript": ">=4.0.0",
+		"react-dom": ">=16"
+	},
+	"release": {
+		"branches": [
+			"main"
+		]
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"dependencies": {
+		"@testing-library/jest-dom": "^5.16.1",
+		"@testing-library/react": "^11.2.7",
+		"@testing-library/user-event": "^12.8.3",
+		"@types/jest": "^26.0.24",
+		"@types/node": "^12.20.37",
+		"@types/react": "^17.0.37",
+		"@types/react-dom": "^17.0.11",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"typescript": "^4.5.4",
+		"web-vitals": "^1.1.2"
+	},
+	"scripts": {
+		"start": "start-storybook -p 6006",
+		"build": "npm run clean && node_modules/.bin/tsc && npm run copy-files",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook",
+		"chromatic": "npx chromatic --project-token=cbee8ee70296",
+		"clean": "rimraf dist/",
+		"copy-files": "copyfiles -u 1 src/**/*.css dist/"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@babel/core": "^7.16.5",
+		"@storybook/addon-actions": "^6.4.9",
+		"@storybook/addon-essentials": "^6.4.9",
+		"@storybook/addon-links": "^6.4.9",
+		"@storybook/react": "^6.4.9",
+		"babel-loader": "^8.2.3",
+		"chromatic": "^6.2.0",
+		"copyfiles": "^2.4.1",
+		"rimraf": "^3.0.2",
+		"semantic-release": "^18.0.1",
+		"storybook-dark-mode": "^1.0.8"
+	},
+	"plugins": [
+		"@semantic-release/commit-analyzer",
+		"@semantic-release/release-notes-generator",
+		"@semantic-release/changelog",
+		"@semantic-release/github",
+		"@semantic-release/npm",
+		"@semantic-release/git"
+	]
 }
