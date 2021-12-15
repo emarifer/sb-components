@@ -2,6 +2,10 @@
 	"name": "emf-my-storybook-components",
 	"version": "0.1.0",
 	"private": false,
+	"author": {
+		"name": "emarifer",
+		"url": "https://emarifer-cv-app.netlify.app/"
+	},
 	"license": "MIT",
 	"typings": "dist/index.d.ts",
 	"main": "dist/index.js",
